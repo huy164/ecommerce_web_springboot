@@ -21,6 +21,6 @@ public class CustomerAccount {
     private String username;
     private String password;
     @OneToOne(cascade = CascadeType.REMOVE)
-    @JoinColumn(name = "id", referencedColumnName = "id")
+    @JoinColumn(name = "customer_id")
     private Customer customer;
 }

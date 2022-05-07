@@ -2,21 +2,22 @@ package com.backend.lavender.models;
 
 import java.util.Objects;
 
+import lombok.Data;
 
+@Data
 public class ResponseObject {
-  
+
   private String status;
   private String message;
-  private String body;
-
+  private Object data;
 
   public ResponseObject() {
   }
 
-  public ResponseObject(String status, String message, String body) {
+  public ResponseObject(String status, String message, Object data) {
     this.status = status;
     this.message = message;
-    this.body = body;
+    this.data = data;
   }
 
   public String getStatus() {
@@ -35,12 +36,12 @@ public class ResponseObject {
     this.message = message;
   }
 
-  public String getBody() {
-    return this.body;
+  public Object getData() {
+    return this.data;
   }
 
-  public void setBody(String body) {
-    this.body = body;
+  public void setData(Object data) {
+    this.data = data;
   }
 
   public ResponseObject status(String status) {
@@ -53,8 +54,8 @@ public class ResponseObject {
     return this;
   }
 
-  public ResponseObject body(String body) {
-    setBody(body);
+  public ResponseObject data(Object data) {
+    setData(data);
     return this;
   }
 
@@ -66,12 +67,12 @@ public class ResponseObject {
             return false;
         }
         ResponseObject responseObject = (ResponseObject) o;
-        return Objects.equals(status, responseObject.status) && Objects.equals(message, responseObject.message) && Objects.equals(body, responseObject.body);
+        return Objects.equals(status, responseObject.status) && Objects.equals(message, responseObject.message) && Objects.equals(data, responseObject.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, message, body);
+    return Objects.hash(status, message, data);
   }
 
   @Override
@@ -79,9 +80,8 @@ public class ResponseObject {
     return "{" +
       " status='" + getStatus() + "'" +
       ", message='" + getMessage() + "'" +
-      ", body='" + getBody() + "'" +
+      ", data='" + getData() + "'" +
       "}";
   }
- 
 
 }
