@@ -33,7 +33,7 @@ public class LoginController {
                     new ResponseObject("failed", "user account does not exist", ""));
         }
 
-        encodedPassword = customerAccountRepository.findPassword(tkkh.getUsername());
+        encodedPassword = customerAccountRepository.findPasswordByUsername(tkkh.getUsername());
 
         if (encoder.matches(tkkh.getPassword(), encodedPassword) == false) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(

@@ -10,5 +10,5 @@ public interface CustomerAccountRepository extends JpaRepository<CustomerAccount
   List<CustomerAccount> findByUsername(String username);
 
   @Query(value="SELECT distinct password FROM customer_account  where username=?1",nativeQuery = true)
-  String findPassword(String username);
+  String findPasswordByUsername(String username);
 }
