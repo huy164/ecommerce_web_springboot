@@ -1,7 +1,5 @@
 package com.backend.lavender.models;
 
-import java.util.Objects;
-
 import lombok.Data;
 
 @Data
